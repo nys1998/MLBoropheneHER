@@ -7,10 +7,10 @@
 	tstress=.true.
 / 
 &SYSTEM
-  ibrav = 0
-  A =    5.84500
-  nat = 56
-  ntyp = 1
+  	ibrav = 0
+  	A =    5.84500
+  	nat = 56
+ 	ntyp = 1
 	ecutwfc=50.0,
 	ecutrho=400.0,
 	occupations='smearing'
@@ -96,4 +96,4 @@ B             1.3838231397        1.8025263057        2.5662959795
 B             1.3828694133        0.6490749028        2.5662959795
 B             0.3816624469        1.8016974507        2.5662959795
 K_POINTS {automatic}
-2 2 1 0 0 0
+3 3 1 0 0 0

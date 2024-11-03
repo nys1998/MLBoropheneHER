@@ -4,7 +4,6 @@
 	prefix='a1b1'
 	pseudo_dir='/home/ngys/Desktop/pseudo'
 	outdir='./tmp'
-wf_collect=.true.
 	tstress=.true.
 / 
 &SYSTEM
@@ -16,8 +15,6 @@ wf_collect=.true.
 	ecutrho=400.0,
 	occupations='smearing'
 	smearing='m-v'
-nbnd=225
-nosym=.true,
 	degauss=0.01
 	vdw_corr='dft-d3'
 / 

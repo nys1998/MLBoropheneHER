@@ -1,0 +1,51 @@
+&control 
+	calculation='vc-relax'
+	restart_mode='from_scratch'
+	prefix='x3'
+	pseudo_dir='/home/ngys/Desktop/pseudo'
+	outdir='./tmp'
+/
+&system
+	ibrav=0,
+	celldm(1)=9.5463,
+	celldm(2)=1,
+	celldm(3)=5,
+	celldm(4)=0.5
+	nat=8,
+	ntyp=1,
+	ecutwfc= 60.0,
+	ecutrho= 400.0,
+	occupations = 'smearing'
+	smearing = 'm-v'
+	degauss = 0.01
+/
+&electrons
+	conv_thr=1.d-8
+	mixing_beta=0.7
+/	
+&ions
+	ion_dynamics = 'bfgs' ,
+/
+&cell
+	cell_dynamics='bfgs'
+	cell_dofree='2Dxy'
+/
+ATOMIC_SPECIES 
+B 10.811 b_pbe_v1.4.uspp.F.UPF
+
+CELL_PARAMETERS (alat=  9.54630000)
+   1.000446466   0.000005393   0.000000000
+   0.500227904   0.866414421   0.000000000
+   0.000000000   0.000000000   5.000000000
+
+ATOMIC_POSITIONS (angstrom)
+B             1.6730285930       -0.0008872449        0.0000000000
+B             3.3787921636       -0.0009002339        0.0000000000
+B             0.8359349302        1.4489260455        0.0000000000
+B             1.6887720270        2.9261292668        0.0000000000
+B             2.5258451745        1.4580323931        0.0000000000
+B             3.3628536347        2.9262350000        0.0000000000
+B             4.2157784817        1.4489194586        0.0000000000
+B             5.0527110092        2.9170193744        0.0000000000
+K_POINTS {automatic}
+10 10 1 0 0 0	

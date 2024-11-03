@@ -1,5 +1,5 @@
 from SymmetryFunction import Sym_Function
-from QE_Class import QE_Input
+from Input_Parser import QE_Input
 import numpy as np
 import copy
 
@@ -80,26 +80,24 @@ if train == True:
             training_data.append(temp)
             fil.write(f'B12 {S} {int(line[0])} {int(line[1])} {CN[S]}\n')
 
-    # trigonal
+    # triangular
     dict = {'S1':30}
     CN={'S1':'7'}
-    f = QE_Input('./trigonal/trigonal.in')
     for S in dict:
-        GH = np.loadtxt(f'./trigonal/{S}.txt')
+        GH = np.loadtxt(f'./triangular/{S}.txt')
         ind = np.lexsort((GH[:,1],GH[:,0]))
         GH =GH[ind]
         for line in GH:
-            file = f"./trigonal/a{int(line[0])}b{int(line[1])}.in"
+            file = f"./triangular/a{int(line[0])}b{int(line[1])}.in"
             f = QE_Input(file)
             temp = Generate_Feature(f,dict[S])
             temp.append(line[2])
             training_data.append(temp)
-            fil.write(f'trigonal {S} {int(line[0])} {int(line[1])} {CN[S]}\n')
+            fil.write(f'triangular {S} {int(line[0])} {int(line[1])} {CN[S]}\n')
 
     # x3
     dict = {'S1':48 ,'S2':47}
     CN = {'S1':4,'S2':5}
-    f = QE_Input('./x3/x3.in')
     for S in dict:
         GH = np.loadtxt(f'./x3/{S}.txt')
         ind = np.lexsort((GH[:,1],GH[:,0]))

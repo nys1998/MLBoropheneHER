@@ -16,8 +16,8 @@ def Generate_Feature(qe,atom):
     temp.append(sym.G1_neigh(atom,Rb=R[1]/0.529,Rc=R[2]/0.529))
     return temp
 
-# True to generate testing data only
-train = False
+# False to generate testing data only
+train = True
 
 '''
 qe: QE input file, converted to QE input type
@@ -28,7 +28,7 @@ if train == True:
     training_data = []
     fil = open('training_name.dat', 'w')
 
-    #alpha1
+    # alpha1
     dict = {'S1': 2, 'S2': 50,'S3': 22}
     CN = {'S1':5,'S2':6,'S3':5}
     for S in dict:
@@ -49,7 +49,7 @@ if train == True:
             training_data.append(temp)
             fil.write(f'alpha1 {S} {int(line[0])} {int(line[1])} {CN[S]}\n')
 
-    #Beta1
+    # Beta1
     f = QE_Input('./beta1/beta1.in')
     dict =   {'S1': 34, 'S2': 22, 'S3': 26, 'S4':38,'S5':18,'S6':2,'S7':42} 
     CN =   {'S1': 5, 'S2': 5, 'S3': 4, 'S4':5,'S5':5,'S6':6,'S7':6} 
@@ -110,7 +110,7 @@ if train == True:
             training_data.append(temp)
             fil.write(f'x3 {S} {int(line[0])} {int(line[1])} {CN[S]}\n')
 
-    #alpha
+    # alpha
     dict = {'S1':31,'S2':32}
     CN = {'S1':5,'S2':6}
     for S in dict:
